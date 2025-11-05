@@ -9,7 +9,7 @@ requires = [
 
 [project]
 name = "ta_lib_easy"
-version = "1.0.3"
+version = "1.0.4"
 requires-python = ">=3.8"
 packages=["talib"]
 package_dir = {"" = "src"}
@@ -21,3 +21,4 @@ logging.level = "DEBUG"
 
 [tool.cibuildwheel]
 build = "cp*"
+
