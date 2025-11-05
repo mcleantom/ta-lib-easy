@@ -54,7 +54,7 @@ jobs:
           only: ${{ matrix.only }}
       
       - name: Upload built wheels as artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wheels
           path: wheelhouse/*
@@ -70,7 +70,7 @@ jobs:
             submodules: recursive
 
         - name: Download built wheels
-          uses: actions/download-artifact@v3
+          uses: actions/download-artifact@v5
           with:
             name: wheels
             path: wheelhouse
@@ -83,4 +83,5 @@ jobs:
             twine upload wheelhouse/*
           env:
             TWINE_USERNAME: __token__
+
             TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
