@@ -4,15 +4,16 @@ requires = [
     "cython",
     "scikit-build-core",
     "cython-cmake",
-    "numpy"
+    "numpy",
 ]
 
 [project]
 name = "ta_lib_easy"
 version = "1.0.4"
 requires-python = ">=3.8"
-packages=["talib"]
-package_dir = {"" = "src"}
+dependencies = [
+    "numpy>=1.20",
+]
 
 [tool.scikit-build]
 ninja.make-fallback = false
@@ -21,4 +22,10 @@ logging.level = "DEBUG"
 
 [tool.cibuildwheel]
 build = "cp*"
+build-frontend = "build[uv]"
 
+[dependency-groups]
+ci = [
+    "cibuildwheel==2.22.0",
+    "twine>=5.1.0",
+]
